@@ -36,4 +36,18 @@ async function addComment(id, data) {
   console.log("addComment", response.data);
   return response.data;
 }
-export { getAllPosts, addPost, deletePost, getPostById, addComment };
+async function deleteComment(commentId) {
+  const response = await instance.delete(
+    `https://api-creddit.eapi.joincoded.com/posts/comments/${commentId}`
+  );
+  console.log("deleteComment", response.data);
+  return response.data;
+}
+export {
+  getAllPosts,
+  addPost,
+  deletePost,
+  getPostById,
+  addComment,
+  deleteComment,
+};
