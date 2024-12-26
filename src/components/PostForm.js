@@ -6,7 +6,6 @@ import { addPost } from "../api/requests";
 const PostForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [comment, setComment] = useState("");
 
   // Adding new post
   const mutation = useMutation({
@@ -32,16 +31,11 @@ const PostForm = () => {
         value={description}
         onChangeText={setDescription}
       />
-      <Text>Comment: </Text>
-      <TextInput
-        style={styles.inputField}
-        value={comment}
-        onChangeText={setComment}
-      />
+
       <View style={styles.buttonContainer}>
         <Button
           title="Create Post"
-          onPress={() => mutation.mutate({ title, description, comment })}
+          onPress={() => mutation.mutate({ title, description })}
         />
       </View>
     </View>
